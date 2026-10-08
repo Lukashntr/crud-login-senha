@@ -13,7 +13,7 @@
         <div class="container">
             <div class="box">
                 <h2>Cadastro</h2>
-                <form action="acoes/acoes.php" method="post">
+                <form action="acoes.php" method="post">
                     <input type="email" name="email" placeholder="Email" required>
                     <input type="text" name="usuario" placeholder="Usuário" required>
                     <input type="password" name="senha" placeholder="Senha" required>

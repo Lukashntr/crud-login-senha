@@ -15,11 +15,11 @@ if (isset($_POST['cadastrar'])) {
 
     if ($resultado) {
         $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";
-        header('Location: public/index.php');
+        header('Location: index.php');
         exit;
     } else {
         $_SESSION['mensagem'] = "Erro ao cadastrar: " . mysqli_error($conn);
-        header('Location: public/index.php');
+        header('Location: index.php');
         exit;
     }
 }
@@ -35,11 +35,11 @@ if (isset($_POST['editar'])) {
 
     if ($resultado && mysqli_affected_rows($conn) > 0) {
         $_SESSION['mensagem'] = "Usuário atualizado com sucesso!";
-        header('Location: public/pagina.php');
+        header('Location: pagina.php');
         exit;
     } else {
         $_SESSION['mensagem'] = "Erro ao atualizar usuário: " . mysqli_error($conn);
-        header('Location: public/editar.php');
+        header('Location: editar.php');
         exit;
     }
 }
@@ -52,11 +52,11 @@ if (isset($_POST['excluir'])) {
 
     if ($resultado && mysqli_affected_rows($conn) > 0) {
         $_SESSION['mensagem'] = "Usuário excluído com sucesso!";
-        header('Location: public/pagina.php');
+        header('Location: pagina.php');
         exit;
     } else {
         $_SESSION['mensagem'] = "Erro ao excluir usuário: " . mysqli_error($conn);
-        header('Location: public/pagina.php');
+        header('Location: pagina.php');
         exit;
     }
 }

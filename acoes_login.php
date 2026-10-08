@@ -30,7 +30,7 @@ if (isset($_POST['login'])) {
 
     if (mysqli_num_rows($resultado) > 0) {
         $_SESSION['usuario'] = $usuario;
-        header('Location: public/pagina.php');
+        header('Location: pagina.php');
         exit;
     } else {
         $_SESSION['mensagem'] = "Usuário ou senha inválidos!";
