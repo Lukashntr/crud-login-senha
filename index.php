@@ -1,5 +1,9 @@
+<?php
+require 'acoes_login.php';
+?>
+
 <!DOCTYPE html>
-<ahtml lang="pt-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -9,6 +9,9 @@ if (isset($_POST['cadastrar'])) {
     $usuario = mysqli_real_escape_string($conn, trim($_POST['usuario']));
     $senha_login = mysqli_real_escape_string($conn, trim($_POST['senha']));
 
+    // criptografa a variavel $senha_login com password_hash
+    $senha_login = password_hash($senha_login, PASSWORD_DEFAULT); 
+
     $sql = "INSERT INTO logins (email, usuario, senha) VALUES ('$email', '$usuario', '$senha_login')";
     $resultado = mysqli_query($conn, $sql);
 
@@ -29,6 +32,9 @@ if (isset($_POST['editar'])) {
     $email = mysqli_real_escape_string($conn, trim($_POST['email']));
     $usuario = mysqli_real_escape_string($conn, trim($_POST['usuario']));
     $senha = mysqli_real_escape_string($conn, trim($_POST['senha']));
+
+    // criptografa a variavel $senha com password_hash
+    $senha = password_hash($senha, PASSWORD_DEFAULT);
 
     $sql = "UPDATE logins SET email = '$email', usuario = '$usuario', senha = '$senha' WHERE id = '$usuario_id'";
     $resultado = mysqli_query($conn, $sql);
