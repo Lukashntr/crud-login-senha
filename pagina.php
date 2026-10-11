@@ -1,5 +1,10 @@
+<?php
+session_start();
+require 'acoes.php';
+?>
+
 <!DOCTYPE html>
-<ahtml lang="pt-br">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,6 +14,7 @@
 </head>
 <body>
     <main>
+
         <h1> BEM VINDO </h1>
         <section class="container">
             <div>
@@ -17,11 +23,21 @@
                 </p>
             </div>
             <div>
-                <p>
+                <form action="acoes.php" method="post">
+                    <button class="btn-pagina" type="submit" name="logout" value="Sair"> Sair</button>
+                </form>
+                <?php
 
-                </p>
+                    if (isset($_SESSION['id'])) {
+                        echo '<a href="editar.php?id=' . $_SESSION['id'] . '">Editar</a>';
+                    } else {
+                        echo "ID não definido na sessão!";
+                    }
+                ?>
+
             </div>
         </section>
+
     </main>
 </body>
 </html>

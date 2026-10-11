@@ -1,5 +1,5 @@
 <?php
-require 'acoes_login.php';
+require 'acoes.php';
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ require 'acoes_login.php';
         <div class="container">
             <div class="box">
                 <h2>Login</h2>
-                <form action="acoes_login.php" method="post">
+                <form action="acoes.php" method="post">
                     <input type="text" name="usuario" placeholder="Usuário" required>
                     <input type="password" name="senha" placeholder="Senha" required>
                     <button type="submit" name="login">Entrar</button>
