@@ -16,7 +16,7 @@ require 'acoes.php';
         <h1>CRUD - Login e Senha</h1>
         <div class="container">
             <div class="box">
-                <h2>Login</h2>
+                <h2 class="titulo-form">Login</h2>
                 <form action="acoes.php" method="post">
                     <input type="text" name="usuario" placeholder="Usuário" required>
                     <input type="password" name="senha" placeholder="Senha" required>

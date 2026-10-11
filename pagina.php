@@ -14,10 +14,10 @@ require 'acoes.php';
 <body>
     <main>
 
-        <h1> BEM VINDO </h1>
+        <h1 class="titulo-pagina"> BEM VINDO </h1>
         <section class="container">
-            <div>
-                <p>
+            <div class="box">
+                <p class="mensagem">
                     blog teste, parabens consegui fazer o login!!
                 </p>
             </div>
@@ -31,17 +31,16 @@ require 'acoes.php';
 
                     $sql = "SELECT * FROM logins";
                     $query = mysqli_query($conn, $sql);
-
                     $usuario = mysqli_fetch_assoc($query);
-                    //echo "Dados do usuário: " . $usuario['id'] . " - " . $usuario['usuario'] . "<br>";
+
                     if ($usuario) {
-                        echo "<form action='editar.php' method='post'>";
-                        echo "<input type='hidden' name='usuario_id' value='" . $usuario['id'] . "'>";
-                        echo "<button type='submit' name='editar'>Editar</button>";
+                        echo "<form class='formulario-editar' action='editar.php' method='post'>";
+                        echo "<input class='input-hidden' type='hidden' name='usuario_id' value='" . $usuario['id'] . "'>";
+                        echo "<button class='botao-editar' type='submit' name='editar'>Editar</button>";
                         echo "</form>";
-                        echo "Usuário logado: " . $_SESSION['usuario'] . "<br>";
+                        echo "<p>Usuário logado: " . $_SESSION['usuario'] . "</p>";
                     } else {
-                        echo "Nenhum usuário logado.";
+                        echo "<p>Nenhum usuário logado.</p>";
                     }
                 ?>
 

@@ -13,14 +13,14 @@
         <div class="container">
             <div class="box">
                 <h2>Editar Usuario</h2>
-                <table>
+                <table class="tabela-editar">
 
-                    <tr>
-                        <th>ID</th>
-                        <th>Email</th>
-                        <th>Usuário</th>
-                        <th>Senha</th>
-                        <th>Ações</th>
+                    <tr class="linha-titulo">
+                        <th class="id">ID</th>
+                        <th class="email">Email</th>
+                        <th class="usuario">Usuário</th>
+                        <th class="senha">Senha</th>
+                        <th class="acoes">Ações</th>
                     </tr>
                     <?php
                     require 'config/conexao.php';
@@ -37,16 +37,16 @@
                         if ($usuario > 0) {
 
                     ?>
-                    <form action="acoes.php" method="post">
+                    <form class="formulario-editar" action="acoes.php" method="post">
                         <input type="hidden" name="usuario_id" value="<?=$usuario['id']; ?>">
-                        <tr>
-                            <td><?=$usuario['id']; ?></td>
-                            <td><input type="email" name="email" value="<?=$usuario['email']; ?>" required></td>
-                            <td><input type="text" name="usuario" value="<?=$usuario['usuario']; ?>" required></td>
-                            <td><input type="password" name="senha" value="<?=$usuario['senha']; ?>" required></td>
+                        <tr class="linha-editar">
+                            <td class="id"><?=$usuario['id']; ?></td>
+                            <td class="email"><input type="email" name="email" value="<?=$usuario['email']; ?>" required></td>
+                            <td class="usuario"><input type="text" name="usuario" value="<?=$usuario['usuario']; ?>" required></td>
+                            <td class="senha"><input type="password" name="senha" value="<?=$usuario['senha']; ?>" required></td>
                             <td>
-                                <button type="submit" name="editar">Editar</button>
-                                <button type="submit" name="excluir" value="<?=$usuario['id']; ?>">Excluir</button>
+                                <button class="botao-editar" type="submit" name="editar">Editar</button>
+                                <button class="botao-excluir" type="submit" name="excluir" value="<?=$usuario['id']; ?>">Excluir</button>
                             </td>
                         </tr>
                     </form>

@@ -102,10 +102,10 @@ if (isset($_POST['cadastrar'])) {
     $senha_login = mysqli_real_escape_string($conn, trim($_POST['senha']));
 
     // criptografa a variavel $senha_login com password_hash
-    $senha_login = password_hash($senha_login, PASSWORD_DEFAULT); 
+    $senhahash = password_hash($senha_login, PASSWORD_DEFAULT); 
 
     // insere os dados do usuário no banco de dados
-    $sql = "INSERT INTO logins (email, usuario, senha) VALUES ('$email', '$usuario', '$senha_login')";
+    $sql = "INSERT INTO logins (email, usuario, senha) VALUES ('$email', '$usuario', '$senhahash')";
     $resultado = mysqli_query($conn, $sql);
 
 
