@@ -17,11 +17,14 @@ require 'acoes.php';
         <div class="container">
             <div class="box">
                 <h2 class="titulo-form">Login</h2>
+
+                <!-- Formulário de login -->
                 <form action="acoes.php" method="post">
-                    <input type="text" name="usuario" placeholder="Usuário" required>
+                    <input type="text" name="usuario" placeholder="Usuário" required> 
                     <input type="password" name="senha" placeholder="Senha" required>
                     <button type="submit" name="login">Entrar</button>
                 </form>
+
                 <p> não tem uma conta? <a href="cadastro.php">Cadastre-se</a></p>
             </div>           
         </div>

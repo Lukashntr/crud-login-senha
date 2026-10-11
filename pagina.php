@@ -18,7 +18,10 @@ require 'acoes.php';
         <section class="container">
             <div class="box">
                 <p class="mensagem">
-                    blog teste, parabens consegui fazer o login!!
+                    Bem vindo a micro, a sua rede social rapida e segura, aqui você pode compartilhar suas ideias, pensamentos e se conectar com pessoas de todo o mundo. Aproveite a experiência e divirta-se!
+                </p>
+                <p>
+                    Seus dados são criptografados para garantir a sua privacidade e segurança.
                 </p>
             </div>
             <div>
@@ -26,14 +29,18 @@ require 'acoes.php';
                     <button class="btn-pagina" type="submit" name="logout" value="Sair"> Sair</button>
                 </form>
                 <?php
+
+                    // Inicia a sessão e inclui o arquivo de conexão com o banco de dados
                     session_start();
                     require 'config/conexao.php';
                     
+                    // Consulta SQL para buscar o usuário logado no banco de dados
                     $sql = "SELECT * FROM logins";
                     $query = mysqli_query($conn, $sql);
                     $usuario = mysqli_fetch_assoc($query);
 
 
+                    // Verifica se o usuário foi encontrado e exibe os dados na tela
                     if ($usuario) {
                         echo "<form class='formulario-editar' action='editar.php' method='post'>";
                         echo "<input class='input-hidden' type='hidden' name='usuario_id' value='" . $usuario['id'] . "'>";

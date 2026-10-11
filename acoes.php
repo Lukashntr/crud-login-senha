@@ -97,6 +97,7 @@ if (isset($_POST['logout'])) {
 // verifica se o usuário clicou no botão de cadastro
 if (isset($_POST['cadastrar'])) {
 
+    // recebe os dados do formulário e remove espaços em branco
     $email = mysqli_real_escape_string($conn, trim($_POST['email']));
     $usuario = mysqli_real_escape_string($conn, trim($_POST['usuario']));
     $senha_login = mysqli_real_escape_string($conn, trim($_POST['senha']));
@@ -109,11 +110,14 @@ if (isset($_POST['cadastrar'])) {
     $resultado = mysqli_query($conn, $sql);
 
 
+    // verifica se a inserção foi bem-sucedida e redireciona para a página de login com uma mensagem de sucesso ou erro
     if ($resultado) {
         $_SESSION['mensagem'] = "Cadastro realizado com sucesso!";
         header('Location: index.php');
         exit;
     } else {
+
+        // se houver algum erro na inserção, exibe uma mensagem de erro
         $_SESSION['mensagem'] = "Erro ao cadastrar: " . mysqli_error($conn);
         header('Location: index.php');
         exit;
@@ -123,6 +127,7 @@ if (isset($_POST['cadastrar'])) {
 // verifica se o usuário clicou no botão de editar
 if (isset($_POST['editar'])) {
 
+    // recebe os dados do formulário e remove espaços em branco
     $usuario_id = mysqli_real_escape_string($conn, $_POST['usuario_id']);
     $email = mysqli_real_escape_string($conn, trim($_POST['email']));
     $usuario = mysqli_real_escape_string($conn, trim($_POST['usuario']));
@@ -131,9 +136,11 @@ if (isset($_POST['editar'])) {
     // criptografa a variavel $senha com password_hash
     $senhahash = password_hash($senha, PASSWORD_DEFAULT);
 
+    // atualiza os dados do usuário no banco de dados
     $sql = "UPDATE logins SET email = '$email', usuario = '$usuario', senha = '$senhahash' WHERE id = '$usuario_id'";
     $resultado = mysqli_query($conn, $sql);
 
+    // verifica se a atualização foi bem-sucedida e redireciona para a página principal com uma mensagem de sucesso ou erro
     if ($resultado && mysqli_affected_rows($conn) > 0) {
         $_SESSION['mensagem'] = "Usuário atualizado com sucesso!";
         header('Location: pagina.php');
@@ -142,6 +149,7 @@ if (isset($_POST['editar'])) {
 
     } else {
 
+        // se houver algum erro na atualização, exibe uma mensagem de erro
         $_SESSION['mensagem'] = "Erro ao atualizar usuário: " . mysqli_error($conn);
         header('Location: editar.php');
         echo "Erro ao atualizar usuário: " . mysqli_error($conn);
@@ -151,16 +159,22 @@ if (isset($_POST['editar'])) {
 
 // verifica se o usuário clicou no botão de excluir
 if (isset($_POST['excluir'])) {
+
+    // recebe o ID do usuário a ser excluído e remove espaços em branco
     $usuario_id = mysqli_real_escape_string($conn, $_POST['excluir']);
 
+    // exclui o usuário do banco de dados
     $sql = "DELETE FROM logins WHERE id = '$usuario_id'";
     $resultado = mysqli_query($conn, $sql);
 
+    // verifica se a exclusão foi bem-sucedida e redireciona para a página principal com uma mensagem de sucesso ou erro
     if ($resultado && mysqli_affected_rows($conn) > 0) {
         $_SESSION['mensagem'] = "Usuário excluído com sucesso!";
         header('Location: pagina.php');
         exit;
     } else {
+        
+        // se houver algum erro na exclusão, exibe uma mensagem de erro
         $_SESSION['mensagem'] = "Erro ao excluir usuário: " . mysqli_error($conn);
         header('Location: pagina.php');
         exit;
