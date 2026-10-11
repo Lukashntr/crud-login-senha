@@ -129,9 +129,9 @@ if (isset($_POST['editar'])) {
     $senha = mysqli_real_escape_string($conn, trim($_POST['senha']));
 
     // criptografa a variavel $senha com password_hash
-    // $senha = password_hash($senha, PASSWORD_DEFAULT);
+    $senhahash = password_hash($senha, PASSWORD_DEFAULT);
 
-    $sql = "UPDATE logins SET email = '$email', usuario = '$usuario', senha = '$senha' WHERE id = '$usuario_id'";
+    $sql = "UPDATE logins SET email = '$email', usuario = '$usuario', senha = '$senhahash' WHERE id = '$usuario_id'";
     $resultado = mysqli_query($conn, $sql);
 
     if ($resultado && mysqli_affected_rows($conn) > 0) {

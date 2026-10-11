@@ -1,0 +1,41 @@
+:root {
+    --fundo: #eef1f4;
+    --superficie: #ffffff;
+    --suave: #f7f8fa;
+    --borda: #d7dde3;
+    --texto: #27313a;
+    --destaque: #526779;
+    --destaque-escuro: #3f5262;
+    --perigo: #9a4f4f;
+    --perigo-escuro: #7d3e3e;
+    --sombra: 0 18px 45px rgba(39, 49, 58, 0.09);
+}
+
+* { box-sizing: border-box; }
+body { min-width: 320px; min-height: 100vh; margin: 0; padding: 32px 20px; color: var(--texto); background: linear-gradient(135deg, #f6f7f8, var(--fundo)); font-family: "Segoe UI", Tahoma, sans-serif; line-height: 1.5; }
+main { width: min(100%, 1040px); margin: 0 auto; }
+main > h1 { margin: 0 0 28px; font-size: clamp(1.7rem, 4vw, 2.35rem); text-align: center; }
+.container { display: flex; justify-content: center; }
+.box { width: 100%; padding: 32px; border: 1px solid var(--borda); border-radius: 10px; background: var(--superficie); box-shadow: var(--sombra); overflow-x: auto; }
+.box h2 { margin: 0 0 24px; font-size: 1.35rem; }
+.tabela-editar { width: 100%; min-width: 760px; border-collapse: collapse; border: 1px solid var(--borda); border-radius: 7px; font-size: 0.95rem; }
+.tabela-editar th, .tabela-editar td { padding: 12px 10px; border-bottom: 1px solid var(--borda); text-align: left; vertical-align: middle; }
+.tabela-editar th { color: var(--texto); background: var(--suave); font-weight: 700; }
+.tabela-editar tr:last-child td { border-bottom: 0; }
+.tabela-editar .id { width: 58px; }
+.tabela-editar .email { min-width: 180px; }
+.tabela-editar .usuario { min-width: 150px; }
+.tabela-editar .senha { min-width: 150px; }
+.tabela-editar .acoes { width: 150px; }
+.tabela-editar td input { min-width: 0; width: 100%; min-height: 40px; padding: 8px 10px; border: 1px solid var(--borda); border-radius: 7px; outline: none; color: var(--texto); background: var(--suave); font: inherit; }
+.tabela-editar td input:focus { border-color: var(--destaque); background: var(--superficie); box-shadow: 0 0 0 3px rgba(82, 103, 121, 0.14); }
+.tabela-editar td:last-child form { display: contents; }
+.tabela-editar td:last-child button { display: block; width: 100%; min-height: 38px; padding: 8px 10px; border: 0; border-radius: 7px; color: #fff; background: var(--destaque); font: inherit; font-size: 0.9rem; font-weight: 650; cursor: pointer; }
+.tabela-editar td:last-child button:hover { background: var(--destaque-escuro); }
+.tabela-editar td:last-child button + button { margin-top: 8px; background: var(--perigo); }
+.tabela-editar td:last-child button + button:hover { background: var(--perigo-escuro); }
+
+@media (max-width: 720px) {
+    body { padding: 24px 14px; }
+    .box { padding: 24px 18px; }
+}

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD - Login e Senha</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-visualizar.css">
 </head>
 <body>
     <main>
@@ -18,7 +18,8 @@
                     session_start();
                     require 'config/conexao.php';
 
-                    $sql = "SELECT * FROM logins";
+                    $id = $_POST['usuario_id'];
+                    $sql = "SELECT * FROM logins WHERE id = $id";
                     $query = mysqli_query($conn, $sql);
                     $usuario = mysqli_fetch_assoc($query);
 
@@ -34,6 +35,7 @@
                 <form action="acoes.php" method="post">
                     <button type="submit" name="logout" value="Sair"> Sair</button>
                 </form>
+                <a class="btn-voltar" href="pagina.php">Voltar</a>
             </div>
         </section>
     </main>

@@ -9,7 +9,7 @@ require 'acoes.php';
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>blog</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-pagina.css">
 </head>
 <body>
     <main>
@@ -28,10 +28,11 @@ require 'acoes.php';
                 <?php
                     session_start();
                     require 'config/conexao.php';
-
+                    
                     $sql = "SELECT * FROM logins";
                     $query = mysqli_query($conn, $sql);
                     $usuario = mysqli_fetch_assoc($query);
+
 
                     if ($usuario) {
                         echo "<form class='formulario-editar' action='editar.php' method='post'>";
@@ -42,7 +43,9 @@ require 'acoes.php';
                         echo "<input class='input-hidden' type='hidden' name='usuario_id' value='" . $usuario['id'] . "'>";
                         echo "<button class='botao-visualizar' type='submit' name='visualizar'>Visualizar</button>";
                         echo "</form>";
-                        echo "<p>Usuário logado: " . $_SESSION['usuario'] . "</p>";
+                        echo "<p>Usuário logado: " . $usuario['usuario'] . "</p>";
+                        echo "<p>Email: " . $usuario['email'] . "</p>";
+                        echo "<p>id: " . $usuario['id'] . "</p>";
                     } else {
                         echo "<p>Nenhum usuário logado.</p>";
                     }

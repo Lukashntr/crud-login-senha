@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD - Login e Senha</title>
-    <link rel="stylesheet" href="assets/css/style.css"> 
+    <link rel="stylesheet" href="assets/css/style-editar.css"> 
 </head>
 <body>
     <main>
@@ -24,6 +24,7 @@
                     </tr>
                     <?php
                     require 'config/conexao.php';
+
                     if (isset($_POST['usuario_id'])) {
 
                         $usuario_id = $_POST['usuario_id'];
@@ -47,6 +48,7 @@
                             <td>
                                 <button class="botao-editar" type="submit" name="editar">Editar</button>
                                 <button class="botao-excluir" type="submit" name="excluir" value="<?=$usuario['id']; ?>">Excluir</button>
+                                <a class="btn-voltar" href="pagina.php">Voltar</a>
                             </td>
                         </tr>
                     </form>
