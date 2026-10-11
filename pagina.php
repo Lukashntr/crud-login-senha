@@ -1,5 +1,4 @@
 <?php
-session_start();
 require 'acoes.php';
 ?>
 
@@ -27,11 +26,22 @@ require 'acoes.php';
                     <button class="btn-pagina" type="submit" name="logout" value="Sair"> Sair</button>
                 </form>
                 <?php
+                    session_start();
+                    require 'config/conexao.php';
 
-                    if (isset($_SESSION['id'])) {
-                        echo '<a href="editar.php?id=' . $_SESSION['id'] . '">Editar</a>';
+                    $sql = "SELECT * FROM logins";
+                    $query = mysqli_query($conn, $sql);
+
+                    $usuario = mysqli_fetch_assoc($query);
+                    //echo "Dados do usuário: " . $usuario['id'] . " - " . $usuario['usuario'] . "<br>";
+                    if ($usuario) {
+                        echo "<form action='editar.php' method='post'>";
+                        echo "<input type='hidden' name='usuario_id' value='" . $usuario['id'] . "'>";
+                        echo "<button type='submit' name='editar'>Editar</button>";
+                        echo "</form>";
+                        echo "Usuário logado: " . $_SESSION['usuario'] . "<br>";
                     } else {
-                        echo "ID não definido na sessão!";
+                        echo "Nenhum usuário logado.";
                     }
                 ?>
 

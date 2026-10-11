@@ -55,8 +55,7 @@ if (isset($_POST['login'])) {
         // verifica se a senha digitada corresponde à senha armazenada no banco de dados
         if (password_verify($senha, $usuario_bd['senha'])) {
 
-            session_regenerate_id(true);
-            //session_start();
+            session_start();
 
             // inicia a sessão e armazena o usuário na sessão 
             $_SESSION['usuario'] = $usuario_bd['usuario'];

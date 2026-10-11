@@ -23,36 +23,39 @@
                         <th>Ações</th>
                     </tr>
                     <?php
-                    session_start();
                     require 'config/conexao.php';
-                                         
-                    if (isset($_GET['id'])) {
-                        $alunos_id = mysqli_real_escape_string($conn, $_GET['id']);
-                        $sql = "SELECT * FROM logins WHERE id = '$alunos_id'";
-                        $query = mysqli_query($conn, $sql);
+                    if (isset($_POST['usuario_id'])) {
 
-                        if (mysqli_num_rows($query) > 0) {
-                            $aluno = mysqli_fetch_array($query);
+                        $usuario_id = $_POST['usuario_id'];
+                        $sql = "SELECT * FROM logins WHERE id = ?";
+                        $stmt = $conn->prepare($sql);
+                        $stmt->bind_param("i", $usuario_id);
+                        $stmt->execute();
+                        $resultado = $stmt->get_result();
+                        $usuario = $resultado->fetch_assoc();
+
+                        if ($usuario > 0) {
+
                     ?>
                     <form action="acoes.php" method="post">
-                        <input type="hidden" name="usuario_id" value="<?=$aluno['id']; ?>">
+                        <input type="hidden" name="usuario_id" value="<?=$usuario['id']; ?>">
                         <tr>
-                            <td><?=$aluno['id']; ?></td>
-                            <td><input type="email" name="email" value="<?=$aluno['email']; ?>" required></td>
-                            <td><input type="text" name="usuario" value="<?=$aluno['usuario']; ?>" required></td>
-                            <td><input type="password" name="senha" value="<?=$aluno['senha']; ?>" required></td>
+                            <td><?=$usuario['id']; ?></td>
+                            <td><input type="email" name="email" value="<?=$usuario['email']; ?>" required></td>
+                            <td><input type="text" name="usuario" value="<?=$usuario['usuario']; ?>" required></td>
+                            <td><input type="password" name="senha" value="<?=$usuario['senha']; ?>" required></td>
                             <td>
                                 <button type="submit" name="editar">Editar</button>
-                                <button type="submit" name="excluir" value="<?=$aluno['id']; ?>">Excluir</button>
+                                <button type="submit" name="excluir" value="<?=$usuario['id']; ?>">Excluir</button>
                             </td>
                         </tr>
                     </form>
 
                     <?php
                         } else {
-                            echo "<h5>Aluno não encontrado.<h5>";
-                            }
+                            echo "<h5>Usuario não encontrado.<h5>";
                         }
+                    }
                     ?>
                 </table>
             </div>           
