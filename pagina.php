@@ -18,9 +18,8 @@ require 'acoes.php';
         <section class="container">
             <div class="box">
                 <p class="mensagem">
-                    Bem vindo a micro, a sua rede social rapida e segura, aqui você pode compartilhar suas ideias, pensamentos e se conectar com pessoas de todo o mundo. Aproveite a experiência e divirta-se!
-                </p>
-                <p>
+                    Bem vindo a micro, a sua rede social rapida e segura, aqui você pode compartilhar suas ideias, 
+                    pensamentos e se conectar com pessoas de todo o mundo. Aproveite a experiência e divirta-se!<br><br>
                     Seus dados são criptografados para garantir a sua privacidade e segurança.
                 </p>
             </div>
