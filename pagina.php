@@ -38,6 +38,10 @@ require 'acoes.php';
                         echo "<input class='input-hidden' type='hidden' name='usuario_id' value='" . $usuario['id'] . "'>";
                         echo "<button class='botao-editar' type='submit' name='editar'>Editar</button>";
                         echo "</form>";
+                        echo "<form class='formulario-visualizar' action='visualizar.php' method='post'>";
+                        echo "<input class='input-hidden' type='hidden' name='usuario_id' value='" . $usuario['id'] . "'>";
+                        echo "<button class='botao-visualizar' type='submit' name='visualizar'>Visualizar</button>";
+                        echo "</form>";
                         echo "<p>Usuário logado: " . $_SESSION['usuario'] . "</p>";
                     } else {
                         echo "<p>Nenhum usuário logado.</p>";
