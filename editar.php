@@ -23,6 +23,7 @@
                         <!-- <th class="senha">Senha</th> -->
                         <th class="botoes"></th> <!-- Coluna para os botões de ação -->
                         <th class="botoes">Ações</th>
+                        <th class="botoes"></th>
                     </tr>
 
                     <?php
