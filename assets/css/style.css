@@ -26,6 +26,9 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 32px 20px;
+    display: grid;
+    place-items: center;
+    overflow-x: hidden;
     color: var(--cor-texto);
     background: linear-gradient(135deg, #f6f7f8 0%, var(--cor-fundo) 100%);
     font-family: "Segoe UI", Tahoma, sans-serif;
@@ -112,23 +115,38 @@ input:focus {
 button {
     min-height: 44px;
     padding: 10px 18px;
-    border: 1px solid transparent;
+    border: 1px solid var(--cor-destaque);
     border-radius: 7px;
     color: #ffffff;
     background: var(--cor-destaque);
     font: inherit;
     font-weight: 650;
     cursor: pointer;
-    transition: background 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+    box-shadow: 0 4px 10px rgba(63, 82, 98, 0.14);
+    transition: background 160ms ease, border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
 }
 
 button:hover {
     background: var(--cor-destaque-escuro);
-    box-shadow: 0 5px 12px rgba(63, 82, 98, 0.18);
+    border-color: var(--cor-destaque-escuro);
+    box-shadow: 0 7px 16px rgba(63, 82, 98, 0.2);
+    transform: translateY(-1px);
 }
 
 button:active {
-    transform: translateY(1px);
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(82, 103, 121, 0.3);
+    outline-offset: 2px;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
 }
 
 p {

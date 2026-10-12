@@ -133,10 +133,10 @@ if (isset($_POST['editar'])) {
     $email = mysqli_real_escape_string($conn, trim($_POST['email']));
     $usuario = mysqli_real_escape_string($conn, trim($_POST['usuario']));
 
-    //$senha = ($_POST['senha']);
+    // $senha = ($_POST['senha']);
 
     // criptografa a variavel $senha com password_hash
-    //$senhahash = password_hash($senha, PASSWORD_DEFAULT);
+    // $senhahash = password_hash($senha, PASSWORD_DEFAULT);
 
     // atualiza os dados do usuário no banco de dados
     $sql = "UPDATE logins SET email = '$email', usuario = '$usuario' WHERE id = '$usuario_id'";
@@ -148,8 +148,9 @@ if (isset($_POST['editar'])) {
         $_SESSION['mensagem'] = "Usuário atualizado com sucesso!";
 
         // Se quiser que o usuário continue logado:
-        //header('Location: pagina.php');
-        // Se quiser que ele volte para o login e entre de novo:
+        // header('Location: pagina.php');
+
+        // se quiser que ele volte para o login e entre de novo:
         header('Location: index.php');
         exit;
     }
@@ -157,8 +158,8 @@ if (isset($_POST['editar'])) {
 
         // se houver algum erro na atualização, exibe uma mensagem de erro
         $_SESSION['mensagem'] = "Erro ao atualizar usuário: " . mysqli_error($conn);
-        header('Location: editar.php');
-        echo "Erro ao atualizar usuário: " . mysqli_error($conn);
+        header('Location: pagina.php');
+        //echo "Erro ao atualizar usuário: " . mysqli_error($conn);
         exit;
     }
 }
@@ -176,7 +177,7 @@ if (isset($_POST['excluir'])) {
     // verifica se a exclusão foi bem-sucedida e redireciona para a página principal com uma mensagem de sucesso ou erro
     if ($resultado && mysqli_affected_rows($conn) > 0) {
         $_SESSION['mensagem'] = "Usuário excluído com sucesso!";
-        header('Location: pagina.php');
+        header('Location: index.php');
         exit;
     } else {
 
@@ -184,6 +185,46 @@ if (isset($_POST['excluir'])) {
         $_SESSION['mensagem'] = "Erro ao excluir usuário: " . mysqli_error($conn);
         header('Location: pagina.php');
         exit;
+    }
+}
+
+// verifica se o usuário clicou no botão de editar senha
+if(isset($_POST['id-senha'])) {
+
+    $id_usuario = $_POST['id-senha'];
+    $_SESSION['id'] = $id_usuario;
+
+    
+    //var_dump($_SESSION['id']);
+    header('Location: editar_senha.php');
+    exit;
+}
+
+
+// verifica se o usuário clicou no botão de Salvar senha editada
+if(isset($_POST['editar-senha'])) {
+
+    $usuario_id = mysqli_real_escape_string($conn, $_POST['usuario_id']);
+    $nova_senha = mysqli_real_escape_string($conn, $_POST['senhaeditada']);
+
+    // Criptografa a nova senha
+    $nova_senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
+
+    // Atualiza a senha no banco de dados
+    $sql = "UPDATE logins SET senha = '$nova_senha_hash' WHERE id = '$usuario_id'";
+    $resultado = mysqli_query($conn, $sql);
+
+    if ($resultado && mysqli_affected_rows($conn) > 0) {
+    $_SESSION['mensagem'] = "Senha atualizada com sucesso!";
+    header('Location: pagina.php');
+    exit;
+
+} else {
+
+    $_SESSION['mensagem'] = "Erro ao atualizar a senha: " . mysqli_error($conn);
+    header('Location: editar_senha.php');
+    exit;
+    
     }
 }
 

@@ -1,5 +1,6 @@
 <?php
 require 'acoes.php';
+session_start();
 ?>
 
 <!DOCTYPE html>

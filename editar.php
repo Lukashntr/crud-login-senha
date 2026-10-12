@@ -21,7 +21,7 @@
                         <th class="email">Email</th>
                         <th class="usuario">Usuário</th>
                         <!-- <th class="senha">Senha</th> -->
-                        <th class="acoes">Ações</th>
+                        <th class="botoes">Ações</th>
                     </tr>
 
                     <?php
@@ -52,13 +52,15 @@
                             <td class="id"><?=$usuario['id']; ?></td>
                             <td class="email"><input type="email" name="email" value="<?=$usuario['email']; ?>" required></td>
                             <td class="usuario"><input type="text" name="usuario" value="<?=$usuario['usuario']; ?>" required></td>
-                            <!-- <td class="senha"><input type="password" name="senha" value="<?=$usuario['senha']; ?>" required></td> -->
+                            <!--<td class="senha"><input type="password" name="senha" value="" required></td>-->
                             <td>
-
-                                <!-- Botões para editar, excluir e voltar -->
-                                <button class="botao-editar" type="submit" name="editar">Editar</button>
-                                <button class="botao-excluir" type="submit" name="excluir" value="<?=$usuario['id']; ?>">Excluir</button>
-                                <a class="btn-voltar" href="pagina.php">Voltar</a>
+                                <button class="botao-editar" type="submit" name="editar">Salvar</button>
+                            </td>
+                            <td>
+                                 <button class="botao-excluir" type="submit" name="excluir" value="<?=$usuario['id']; ?>">Excluir</button>
+                            </td>
+                            <td>
+                                <button type="hidden" class="btn-editar-senha" type="submit" name="id-senha" value="<?=$usuario['id']; ?>">Editar Senha</button>
                             </td>
                         </tr>
                     </form>
@@ -74,6 +76,7 @@
                 </table>
             </div>           
         </div>
+        <a class="btn-voltar" href="pagina.php">Voltar</a>
     </main>
 </body>
 </html>
