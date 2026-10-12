@@ -34,6 +34,8 @@ main > h1 { margin: 0 0 28px; font-size: clamp(1.7rem, 4vw, 2.35rem); text-align
 .tabela-editar td:last-child button:hover { background: var(--destaque-escuro); }
 .tabela-editar td:last-child button + button { margin-top: 8px; background: var(--perigo); }
 .tabela-editar td:last-child button + button:hover { background: var(--perigo-escuro); }
+.tabela-editar td:last-child .btn-voltar { display: block; width: 100%; min-height: 38px; margin-top: 8px; padding: 8px 10px; border: 1px solid var(--borda); border-radius: 7px; color: var(--texto); background: var(--superficie); font: inherit; font-size: 0.9rem; font-weight: 650; text-align: center; text-decoration: none; }
+.tabela-editar td:last-child .btn-voltar:hover { border-color: var(--destaque); color: var(--destaque-escuro); background: var(--suave); }
 
 @media (max-width: 720px) {
     body { padding: 24px 14px; }

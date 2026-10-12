@@ -9,15 +9,12 @@ if (isset($_POST['login'])) {
 
     // recebe senha e a transforma em string, remove espaços em branco usando trim
     $senha = $_POST['senha'];
-
-    // recebe senha e a criptografa usando password_hash
-    //$senhahash = password_hash($senha, PASSWORD_DEFAULT);
     
 
     // verifica se o usuário e a senha estão vazios
     if (empty($usuario) || empty($senha)) {
         $_SESSION['mensagem'] = "Por favor, preencha todos os campos!";
-        header('Location: index.php');
+        //header('Location: index.php');
         echo "Por favor, preencha todos os campos!";
         exit;
     }
@@ -26,7 +23,7 @@ if (isset($_POST['login'])) {
     if (!filter_var($usuario, FILTER_VALIDATE_EMAIL) && !preg_match('/^[a-zA-Z0-9_]+$/', $usuario)) {
         $_SESSION['mensagem'] = "Usuário inválido!";
         echo "Usuário inválido!";
-        header('Location: index.php');
+        //header('Location: index.php');
         exit;
     }
 
@@ -70,8 +67,11 @@ if (isset($_POST['login'])) {
 
             // se a senha estiver incorreta, exibe uma mensagem de erro
             $_SESSION['mensagem'] = "Senha incorreta!";
-            header('Location: index.php');
+            //header('Location: index.php');
             echo "Senha incorreta!";
+            var_dump($usuario_bd['senha']);
+            var_dump($senha);
+            var_dump(password_verify($senha, $usuario_bd['senha']));
             exit;
         }
 
@@ -79,7 +79,7 @@ if (isset($_POST['login'])) {
         
         // se o usuário não for encontrado, exibe uma mensagem de erro
         $_SESSION['mensagem'] = "Usuário não encontrado!";
-        header('Location: index.php');
+        //header('Location: index.php');
         echo "Usuário não encontrado!";
         exit;
     }
@@ -91,6 +91,7 @@ if (isset($_POST['logout'])) {
     // destrói a sessão e redireciona para a página de login
     header('Location: index.php');
     echo "Logout realizado com sucesso!";
+    session_destroy();
     exit;
 }
 
@@ -131,23 +132,28 @@ if (isset($_POST['editar'])) {
     $usuario_id = mysqli_real_escape_string($conn, $_POST['usuario_id']);
     $email = mysqli_real_escape_string($conn, trim($_POST['email']));
     $usuario = mysqli_real_escape_string($conn, trim($_POST['usuario']));
-    $senha = mysqli_real_escape_string($conn, trim($_POST['senha']));
+
+    //$senha = ($_POST['senha']);
 
     // criptografa a variavel $senha com password_hash
-    $senhahash = password_hash($senha, PASSWORD_DEFAULT);
+    //$senhahash = password_hash($senha, PASSWORD_DEFAULT);
 
     // atualiza os dados do usuário no banco de dados
-    $sql = "UPDATE logins SET email = '$email', usuario = '$usuario', senha = '$senhahash' WHERE id = '$usuario_id'";
+    $sql = "UPDATE logins SET email = '$email', usuario = '$usuario' WHERE id = '$usuario_id'";
     $resultado = mysqli_query($conn, $sql);
 
     // verifica se a atualização foi bem-sucedida e redireciona para a página principal com uma mensagem de sucesso ou erro
-    if ($resultado && mysqli_affected_rows($conn) > 0) {
-        $_SESSION['mensagem'] = "Usuário atualizado com sucesso!";
-        header('Location: pagina.php');
-        echo "Usuário atualizado com sucesso!";
-        exit;
+   if ($resultado && mysqli_affected_rows($conn) > 0) {
 
-    } else {
+        $_SESSION['mensagem'] = "Usuário atualizado com sucesso!";
+
+        // Se quiser que o usuário continue logado:
+        //header('Location: pagina.php');
+        // Se quiser que ele volte para o login e entre de novo:
+        header('Location: index.php');
+        exit;
+    }
+    else {
 
         // se houver algum erro na atualização, exibe uma mensagem de erro
         $_SESSION['mensagem'] = "Erro ao atualizar usuário: " . mysqli_error($conn);
@@ -173,7 +179,7 @@ if (isset($_POST['excluir'])) {
         header('Location: pagina.php');
         exit;
     } else {
-        
+
         // se houver algum erro na exclusão, exibe uma mensagem de erro
         $_SESSION['mensagem'] = "Erro ao excluir usuário: " . mysqli_error($conn);
         header('Location: pagina.php');

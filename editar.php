@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD - Login e Senha</title>
+    <title>Editar Usuário</title>
     <link rel="stylesheet" href="assets/css/style-editar.css"> 
 </head>
 <body>
     <main>
-        <h1>CRUD - Login e Senha</h1>
+        <h1>Micro - Editar Usuário</h1>
         <div class="container">
             <div class="box">
                 <h2>Editar Usuario</h2>
@@ -20,7 +20,7 @@
                         <th class="id">ID</th>
                         <th class="email">Email</th>
                         <th class="usuario">Usuário</th>
-                        <th class="senha">Senha</th>
+                        <!-- <th class="senha">Senha</th> -->
                         <th class="acoes">Ações</th>
                     </tr>
 
@@ -52,7 +52,7 @@
                             <td class="id"><?=$usuario['id']; ?></td>
                             <td class="email"><input type="email" name="email" value="<?=$usuario['email']; ?>" required></td>
                             <td class="usuario"><input type="text" name="usuario" value="<?=$usuario['usuario']; ?>" required></td>
-                            <td class="senha"><input type="password" name="senha" value="<?=$usuario['senha']; ?>" required></td>
+                            <!-- <td class="senha"><input type="password" name="senha" value="<?=$usuario['senha']; ?>" required></td> -->
                             <td>
 
                                 <!-- Botões para editar, excluir e voltar -->
@@ -64,7 +64,7 @@
                     </form>
 
                     <?php
-                    
+
                         // Se o usuário não for encontrado, exibe uma mensagem de erro
                         } else {
                             echo "<h5>Usuario não encontrado.<h5>";

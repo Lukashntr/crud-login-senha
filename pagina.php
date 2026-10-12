@@ -8,13 +8,13 @@ require 'acoes.php';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>blog</title>
+    <title>Micro - Página Principal</title>
     <link rel="stylesheet" href="assets/css/style-pagina.css">
 </head>
 <body>
     <main>
 
-        <h1 class="titulo-pagina"> BEM VINDO </h1>
+        <h1 class="titulo-pagina"> Bem vindo a Micro a sua rede Social Rapida </h1>
         <section class="container">
             <div class="box">
                 <p class="mensagem">
@@ -31,10 +31,11 @@ require 'acoes.php';
 
                     // Inicia a sessão e inclui o arquivo de conexão com o banco de dados
                     session_start();
+                    //var_dump($_SESSION);
                     require 'config/conexao.php';
                     
                     // Consulta SQL para buscar o usuário logado no banco de dados
-                    $sql = "SELECT * FROM logins";
+                    $sql = "SELECT * FROM logins WHERE id = " . (int)$_SESSION['id'];
                     $query = mysqli_query($conn, $sql);
                     $usuario = mysqli_fetch_assoc($query);
 

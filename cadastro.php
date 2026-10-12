@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD - Login e Senha</title>
+    <title>Micro - Cadastro</title>
     <link rel="stylesheet" href="assets/css/style-cadastro.css">
 </head>
 <body>
     <main>
-        <h1>CRUD - Login e Senha</h1>
+        <h1>Micro - Cadastro</h1>
         <div class="container">
             <div class="box">
                 <h2>Cadastro</h2>
