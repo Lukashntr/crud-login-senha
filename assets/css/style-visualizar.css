@@ -23,10 +23,12 @@ button:hover { background: var(--destaque-escuro); border-color: var(--destaque-
 button:active { transform: translateY(0); }
 button:focus-visible { outline: 3px solid rgba(82, 103, 121, 0.3); outline-offset: 2px; }
 button:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; transform: none; }
-.btn-voltar { display: block; width: 100%; min-height: 44px; margin-top: 12px; padding: 10px 18px; border: 1px solid var(--borda); border-radius: 7px; color: var(--texto); background: var(--superficie); font: inherit; font-weight: 650; text-align: center; text-decoration: none; transition: border-color 160ms ease, background 160ms ease, color 160ms ease; }
+.btn-voltar { display: inline-flex; width: auto; min-height: 38px; margin-top: 12px; padding: 8px 16px; align-items: center; justify-content: center; border: 1px solid var(--borda); border-radius: 7px; color: var(--texto); background: var(--superficie); font: inherit; font-weight: 650; text-align: center; text-decoration: none; transition: border-color 160ms ease, background 160ms ease, color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
 .btn-voltar:hover { border-color: var(--destaque); color: var(--destaque-escuro); background: #f7f8fa; }
 
 @media (max-width: 420px) {
     body { padding: 18px 10px; }
     main > section { padding: 22px 14px; }
+    main h1 { font-size: 1.55rem; }
+    .p-visualizar { overflow-wrap: anywhere; }
 }

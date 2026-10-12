@@ -53,7 +53,7 @@
                         <!-- Linha da tabela com os campos de edição do usuário -->
                         <tr class="linha-editar">
                             <td class="id-editar-senha"><?=$usuario['usuario']; ?></td>
-                            <td class="input-editar-senha"><input type="text" name="senhaeditada" placeholder="Digite a nova senha" required></td>
+                            <td class="input-editar-senha"><input type="password" name="senhaeditada" placeholder="Digite a nova senha" required></td>
                             <!--<td class="senha"><input type="password" name="senha" value="" required></td>-->
                             <td>
                                 <button class="botao-editar-senha" type="submit" name="editar-senha">Salvar</button>
@@ -72,7 +72,7 @@
                 </table>
             </div>           
         </div>
-        <a class="btn-voltar" href="index.php">Voltar</a>
+        <a class="btn-voltar" href="pagina.php">Voltar</a>
     </main>
 </body>
 </html>

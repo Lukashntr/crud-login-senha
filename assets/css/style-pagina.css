@@ -35,7 +35,8 @@ button:disabled { opacity: 0.6; cursor: not-allowed; box-shadow: none; transform
 
 @media (max-width: 720px) {
     body { padding: 24px 14px; }
+    .titulo-pagina { margin-bottom: 20px; font-size: 1.65rem; }
     .container { flex-direction: column; }
-    .box { min-height: 260px; padding: 32px 24px; }
-    .container > div:last-child { flex-basis: auto; }
+    .box { width: 100%; min-height: 260px; padding: 32px 24px; }
+    .container > div:last-child { width: 100%; flex-basis: auto; }
 }

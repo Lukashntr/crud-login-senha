@@ -316,6 +316,8 @@ main > section:not(.container) p {
         overflow-x: auto;
         white-space: nowrap;
     }
+
+    .titulo-pagina { font-size: 1.65rem; }
 }
 
 @media (max-width: 420px) {

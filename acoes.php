@@ -191,7 +191,8 @@ if (isset($_POST['excluir'])) {
 // verifica se o usuário clicou no botão de editar senha
 if(isset($_POST['id-senha'])) {
 
-    $id_usuario = $_POST['id-senha'];
+    // recebe o ID do usuário a ser editado e remove espaços em branco
+    $id_usuario = mysqli_real_escape_string($conn, $_POST['id-senha']);
     $_SESSION['id'] = $id_usuario;
 
     
@@ -214,18 +215,28 @@ if(isset($_POST['editar-senha'])) {
     $sql = "UPDATE logins SET senha = '$nova_senha_hash' WHERE id = '$usuario_id'";
     $resultado = mysqli_query($conn, $sql);
 
+    // Verifica se a atualização foi bem-sucedida e redireciona para a página principal com uma mensagem de sucesso ou erro
     if ($resultado && mysqli_affected_rows($conn) > 0) {
+
+    // Se a atualização foi bem-sucedida, define uma mensagem de sucesso na sessão e redireciona para a página principal
     $_SESSION['mensagem'] = "Senha atualizada com sucesso!";
     header('Location: pagina.php');
     exit;
 
 } else {
 
+    // Se a atualização falhar, define uma mensagem de erro na sessão e redireciona para a página de edição
     $_SESSION['mensagem'] = "Erro ao atualizar a senha: " . mysqli_error($conn);
     header('Location: editar_senha.php');
     exit;
     
     }
 }
+
+
+
+
+
+
 
 ?>

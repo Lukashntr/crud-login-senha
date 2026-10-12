@@ -21,6 +21,7 @@
                         <th class="email">Email</th>
                         <th class="usuario">Usuário</th>
                         <!-- <th class="senha">Senha</th> -->
+                        <th class="botoes"></th> <!-- Coluna para os botões de ação -->
                         <th class="botoes">Ações</th>
                     </tr>
 

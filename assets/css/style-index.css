@@ -94,5 +94,6 @@ a:hover { color: var(--texto); }
 
 @media (max-width: 420px) {
     body { padding: 18px 10px; }
-    .box { padding: 22px 14px; }
+    main > h1 { margin-bottom: 20px; font-size: 1.55rem; }
+    .box { width: 100%; padding: 22px 14px; }
 }

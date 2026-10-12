@@ -37,11 +37,7 @@
                 ?>
             </div>
             <div>
-                
-                <!-- Formulário para logout e botão de voltar -->
-                <form action="acoes.php" method="post">
-                    <button type="submit" name="logout" value="Sair"> Sair</button>
-                </form>
+                               
 
                 <!-- Botão de voltar para a página principal -->
                 <a class="btn-voltar" href="pagina.php">Voltar</a>
