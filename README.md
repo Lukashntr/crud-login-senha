@@ -51,6 +51,24 @@ Tela específica para informar e salvar uma nova senha para o usuário seleciona
 
 ![Tela de edição de senha](assets/img/editar_senha.png)
 
+## Avisos do sistema
+
+Após cada ação, o sistema informa ao usuário se a operação foi concluída ou se ocorreu algum problema. Esses avisos são exibidos no topo da página de destino e podem ser fechados pelo botão `X`.
+
+![Aviso de login realizado com sucesso](assets/img/aviso_login_ok.png)
+
+![Aviso de senha atualizada](assets/img/aviso_senha_editada.png)
+
+### Como os avisos funcionam
+
+1. O formulário envia a ação para `acoes.php` usando o método `POST`.
+2. `acoes.php` grava o texto do resultado em `$_SESSION['mensagem']`.
+3. Após o processamento, o usuário é redirecionado para a página correspondente.
+4. `mensagem.php` verifica se existe uma mensagem na sessão e exibe o aviso.
+5. Depois da exibição, a mensagem é removida da sessão para não aparecer novamente ao atualizar a página.
+
+As mensagens podem indicar sucesso, como login realizado, cadastro concluído ou senha atualizada, e também erros, como senha incorreta, usuário não encontrado ou falha no banco de dados.
+
 ## Tecnologias utilizadas
 
 - PHP
