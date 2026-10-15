@@ -31,7 +31,7 @@ Permite criar um novo usuário informando email, nome de usuário e senha. A sen
 
 Depois do login, a aplicação consulta o usuário armazenado na sessão e exibe as opções de gerenciamento.
 
-![Página principal](assets/img/pagina%20principal.png)
+![Página principal](assets/img/pagina_principal.png)
 
 ### Visualização
 
