@@ -1,4 +1,5 @@
 <?php
+//session_start();
 require 'acoes.php';
 ?>
 
@@ -13,7 +14,7 @@ require 'acoes.php';
 </head>
 <body>
     <main>
-
+        <?php include 'mensagem.php'; ?>
         <h1 class="titulo-pagina">Micro</h1>
         <section class="container">
             <div class="box">
@@ -29,7 +30,6 @@ require 'acoes.php';
                 <?php
 
                     // Inicia a sessão e inclui o arquivo de conexão com o banco de dados
-                    session_start();
                     //var_dump($_SESSION);
                     require 'config/conexao.php';
                     

@@ -1,6 +1,7 @@
 <?php
+//session_start();
 require 'acoes.php';
-session_start();
+include 'mensagem.php';
 ?>
 
 <!DOCTYPE html>

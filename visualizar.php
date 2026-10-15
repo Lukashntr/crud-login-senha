@@ -15,7 +15,7 @@
             </div>
             <div>
                 <?php
-                    session_start();
+                    //session_start();
                     require 'config/conexao.php';
 
                     // Verifica se o usuário está logado
