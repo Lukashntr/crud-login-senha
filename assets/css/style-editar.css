@@ -32,15 +32,7 @@ main { width: min(100%, 1040px); min-width: 0; }
     .tabela-editar .linha-editar td:nth-child(2)::before { content: "Email"; }
     .tabela-editar .linha-editar td:nth-child(3)::before { content: "Usuario"; }
 
-    .tabela-editar-senha .linha-editar td:nth-child(1)::before { content: "Usuario"; }
-    .tabela-editar-senha .linha-editar td:nth-child(2)::before { content: "Nova Senha"; }
-    .tabela-editar-senha .linha-editar td:nth-child(3)::before { content: "Ações"; }
-
-    
-
     .tabela-editar .linha-editar td button, .tabela-editar .linha-editar td input { width: 100%; max-width: 100%; }
-    .tabela-editar-senha .linha-editar td button, .tabela-editar-senha .linha-editar td input { width: 100%; max-width: 100%; }
-
     .btn-voltar { width: 100%; }
     .btn-voltar-senha { width: auto; }
 }

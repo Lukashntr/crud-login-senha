@@ -1,0 +1,38 @@
+main { width: min(100%, 1040px); min-width: 0; }
+.container .box { max-width: none; min-width: 0; overflow-x: auto; }
+.box h2 { text-align: center; }
+.tabela-editar-senha { width: 100%; min-width: 760px; border-collapse: collapse; border: 1px solid var(--borda); border-radius: 7px; font-size: .95rem; }
+.tabela-editar-senha th, .tabela-editar-senha td { padding: 12px 10px; border: 1px solid var(--borda); text-align: center; vertical-align: middle; }
+.tabela-editar-senha th { background: var(--suave); font-weight: 700; }
+.tabela-editar-senha .id { width: 58px; }
+.tabela-editar-senha .email { min-width: 180px; }
+.tabela-editar-senha .usuario, .tabela-editar-senha .senha { min-width: 150px; }
+.tabela-editar-senha .acoes { width: 150px; }
+.tabela-editar-senha td input { min-width: 0; min-height: 40px; padding: 8px 10px; text-align: center; }
+.tabela-editar-senha td:last-child form { display: contents; }
+.tabela-editar-senha td button { display: block; width: 100%; min-height: 38px; padding: 8px 10px; font-size: .9rem; }
+.tabela-editar-senha .botao-excluir { background: var(--perigo); border-color: var(--perigo); }
+.tabela-editar-senha .botao-excluir:hover { background: var(--perigo-escuro); border-color: var(--perigo-escuro); }
+.btn-voltar { display: inline-flex; width: auto; min-height: 38px; margin: 12px auto 0; padding: 8px 16px; align-items: center; justify-content: center; border: 1px solid var(--borda); border-radius: 7px; color: var(--texto); background: var(--superficie); font: inherit; font-weight: 650; text-align: center; text-decoration: none; }
+.btn-voltar:hover { border-color: var(--destaque); color: var(--destaque-escuro); background: var(--suave); }
+.btn-voltar-senha { display: inline-flex; width: auto; min-height: 38px; margin: 12px auto 0; padding: 8px 16px; align-items: center; justify-content: center; border: 1px solid var(--borda); border-radius: 7px; color: var(--texto); background: var(--superficie); font: inherit; font-weight: 650; text-align: center; text-decoration: none; }
+.btn-voltar-senha:hover { border-color: var(--destaque); color: var(--destaque-escuro); background: var(--suave); }
+.alert { width: min(100%, 760px); }
+.paragrafo-editar-senha {  width: min(100%, 760px); margin: 0 auto 12px; padding: 8px 10px; text-align: center; font-size: .9rem; color: var(--texto); }
+@media (max-width: 900px) {
+    body { display: block; }
+    .container .box { overflow-x: hidden; }
+    .tabela-editar-senha { display: block; width: 100%; min-width: 0; border: 0; table-layout: fixed; }
+    .tabela-editar-senha tbody, .tabela-editar-senha .linha-editar { display: block; width: 100%; }
+    .tabela-editar-senha .linha-titulo { display: none; }
+    .tabela-editar-senha .linha-editar td { display: flex; flex-direction: column; align-items: center; gap: 7px; width: 100%; min-width: 0; padding: 12px 0; border: 0; border-bottom: 1px solid var(--borda); }
+    .tabela-editar-senha .linha-editar td::before { color: var(--texto); font-size: .78rem; font-weight: 700; text-transform: uppercase; }
+
+    .tabela-editar-senha .linha-editar td:nth-child(1)::before { content: "Usuario"; }
+    .tabela-editar-senha .linha-editar td:nth-child(2)::before { content: "Nova Senha"; }
+    .tabela-editar-senha .linha-editar td:nth-child(3)::before { content: "Ações"; }
+
+    .tabela-editar-senha .linha-editar td button, .tabela-editar-senha .linha-editar td input { width: 100%; max-width: 100%; }
+    .btn-voltar { width: 100%; }
+    .btn-voltar-senha { width: auto; }
+}
