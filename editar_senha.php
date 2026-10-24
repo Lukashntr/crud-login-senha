@@ -15,10 +15,11 @@ include 'mensagem.php';
 <body>
     <main>
         <h1>Micro - Editar Senha</h1>
+        <p class="paragrafo-editar-senha">Sua senha é criptografada, nunca a compartilhe com ninguém.</p>
         <div class="container">
             <div class="box">
                 <h2>Editar Senha</h2>
-                <table class="tabela-editar">
+                <table class="tabela-editar-senha">
                 <!-- Cabeçalho da tabela com os títulos das colunas -->
                     <tr class="linha-titulo">
                         <th class="id-editar-senha">Usuario</th>
